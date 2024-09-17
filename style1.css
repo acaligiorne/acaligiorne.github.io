@@ -1,0 +1,132 @@
+body{
+    background:#efefef;
+    margin: 0px;
+  }
+  h1{
+    margin:1px;
+    color:yellow;
+    font-size: 6vh;
+    display: flex;
+    justify-content: center;
+  }
+  h2{
+    color:green;
+    margin:1px;
+    font-size: 4vh;
+    display: flex;
+    justify-content: center;
+  }
+  .container{
+    background:rgb(255, 22, 22);
+    position:relative;
+    
+    margin: 10px auto; /* 10px on the top and bottom, "auto" to center it on either side */
+    padding:20px;
+    
+    height:calc(100vh - 40px - 20px); /* 100% of the viewport height, minus 2x padding, minus 2x the margin. */
+    width:60vh; /* This is in "vh" units because we always want it to be relative to the height. In this case, it's a 3:5 ratio (60:100) */
+  }
+  
+  .circle{
+    width:30vh;
+    height: 30vh;
+    background:rgb(255, 1, 1);
+    border-radius:50%;
+    position:absolute;
+    top:140px;
+    right:150px;
+  }
+
+  .circle2{
+    width:20vh;
+    height: 20vh;
+    background:green;
+    border-radius:50%;
+    position:absolute;
+    bottom:60px;
+    right:180px;
+  }
+
+  .circle3{
+    width:10vh;
+    height: 10vh;
+    background:yellow;
+    border-radius:50%;
+    position:absolute;
+    bottom:60px;
+    right:140px;
+  }
+
+  .horizontal-stripes {
+    width: 60vh;
+    height: 300px;
+    background:repeating-linear-gradient(
+    90deg,
+    rgb(133, 155, 250),
+    rgb(111, 207, 248) 2px,
+    white 20px,
+    white 20px
+    );
+  }
+
+  .blue-background {
+    background-color:blue;
+    color: white;
+    border-radius: 50%;
+    padding: 5px;
+    font-size: 2vh;
+    margin: 5px;
+    height: 3vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  p{
+    color:wheat;
+    line-height: 1.15;
+    letter-spacing: -1px;
+    text-align: center;
+}
+
+.center-align{
+    justify-content: center;
+    align-items: center;
+}
+h3{
+    color:rgb(238, 215, 43);
+    margin:1px;
+    font-size: 4vh;
+    display: flex;
+    justify-content: left;
+    
+  }
+
+  h4{
+    color:rgb(238, 134, 43);
+    margin:0px;
+    font-size: 3vh;
+    display: flex;
+    justify-content: left;
+    
+  }
+
+  h5{
+    color:blue;
+    margin:1px;
+    font-size: 3vh;
+    display: flex;
+    justify-content: left;
+    position: absolute;
+    bottom: 3vh;
+  }
+
+  h6{
+    color:rgb(106, 106, 249);
+    margin:1px;
+    font-size: 3vh;
+    display: flex;
+    justify-content: left;
+    position: absolute;
+    bottom: 6vh;
+  }
