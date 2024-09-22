@@ -1,6 +1,13 @@
 body{
-    background:#000000;
-    margin: 0px;
+    background:#ffd902;
+    margin: 5px;
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: <normal>;
+    font-style: normal;
+    height:100vh;
+    width: 100vw;
+    position:relative; 
   }
   h1{
     margin:1px;
@@ -22,26 +29,28 @@ body{
     position:relative;
     
     margin: 10px auto; /* 10px on the top and bottom, "auto" to center it on either side */
-    padding:20px;
+    padding:10px;
     
     height:100vh;
     width: 100vw;
+    z-index: -10;
   }
   
   .circle{
-    width:30vh;
-    height: 30vh;
-    background:rgb(255, 1, 1);
+    width:70vh;
+    height: 70vh;
+    background:linear-gradient(45deg, yellow, red);
     border-radius:50%;
-    position:absolute;
-    top:170px;
-    right: 75px;
+    top:calc(10vh - 150px);
+    right: calc(20vh - 150px);
+    position: absolute;
+    z-index: -1;
   }
 
   .circle2{
+    background:linear-gradient(45deg, red, yellow);
     width:20vh;
     height: 20vh;
-    background:rgb(255, 106, 0);
     border-radius:50%;
     position:absolute;
     bottom:60px;
@@ -49,9 +58,9 @@ body{
   }
 
   .circle3{
+    background:linear-gradient(45deg, yellow, red);
     width:10vh;
     height: 10vh;
-    background:yellow;
     border-radius:50%;
     position:absolute;
     bottom:70px;
