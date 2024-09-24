@@ -1,0 +1,206 @@
+body{
+    background:#02a2ff;
+    margin: 5px;
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+    height:100vh;
+    width: 100vw;
+    position:relative; 
+  }
+
+  h1{
+    margin:1px;
+    color:rgb(34, 0, 255);
+    font-size: 20vh;
+    justify-content:space-around;
+    text-align: center;
+  }
+
+  h1:hover {
+    color:rgb(186, 255, 254);
+  }
+
+  h2 {
+    color: #fcfc2c; 
+    margin: 5px;
+    font-size: 6vh;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  h2:hover {
+    transform: scale(1.1);
+  }
+
+  .container{
+    background:radial-gradient(#02a2ff, #dff1fc);
+    position:relative;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    margin: 10px auto; 
+    padding:10px;
+    
+    height:100vh;
+    width: 100vw;
+    z-index: 0;
+  }
+
+  .container:hover{
+    background:linear-gradient(45deg, #8fd3fb, #02a2ff);
+
+  }
+
+  .footer-text { 
+    position:absolute;
+    bottom:0;
+    left:10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+  
+h3, h4, h5, h6 {
+    position: relative;
+    z-index: 1; 
+    margin:2px 0;
+    font-size:4vh;
+    margin-top:0.5rem;
+    margin-bottom:0.5rem;
+    
+}
+
+  .circle{
+    width:70vh;
+    height: 70vh;
+    background:linear-gradient(45deg, rgb(159, 183, 255), #02a2ff);
+    border-radius:50%;
+    top:calc(10vh - 150px);
+    right: calc(20vh - 150px);
+    position: absolute;
+    z-index: -1;
+  }
+
+  .circle:hover {
+    background:linear-gradient(45deg, #02a2ff, rgb(191, 216, 255));
+  }
+
+  .circle2{
+    background:linear-gradient(45deg, #02a2ff, rgb(188, 217, 252));
+    width:20vh;
+    height: 20vh;
+    border-radius:50%;
+    position:absolute;
+    bottom:60px;
+    right:180px;
+    transition: background 0.3s ease;
+    box-shadow: 5px 5px 10px rgb(0, 17, 255);
+  }
+
+  .circle2:hover {
+    background: linear-gradient(90deg, #1a12ff, #02a2ff);
+    filter:blur(2px)
+}
+
+  .circle3{
+    background:linear-gradient(45deg, #020fff, #02a2ff);
+    width:10vh;
+    height: 10vh;
+    border-radius:50%;
+    position:absolute;
+    bottom:70px;
+    right:150px;
+    transition: background 0.3s ease;
+    box-shadow: 5px 5px 10px rgb(43, 0, 255);
+  }
+
+  .circle3:hover {
+    background: linear-gradient(90deg, #02a2ff, #88d3ff);
+    filter:blur(2px)
+}
+
+  .horizontal-stripes {
+    width: 100vw;
+    height: 30vh;
+    background:repeating-linear-gradient(
+    90deg,
+    rgb(111, 241, 255),
+    #0213ff 2px,
+    white 20px,
+    white 20px
+    );
+  }
+
+  .horizontal-stripes:hover {
+    background: repeating-linear-gradient(
+        90deg,
+        rgb(2, 35, 250),
+        rgb(4, 176, 255) 2px,
+        rgb(255, 249, 249) 20px,
+        rgb(254, 248, 248) 20px
+      );
+  }
+
+  
+  .blue-background {
+    background:linear-gradient(45deg, rgb(224, 228, 255), #0228ff);
+    color: white;
+    border-radius: 100%;
+    padding: 10px;
+    font-size: 2vh;
+    margin: 5px;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .blue-background:hover {
+    background: linear-gradient(45deg, #0239ff, #dcdeff);
+}
+
+  p{
+    color:wheat;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.center-align{
+    justify-content: center;
+    align-items: center;
+}
+h3{
+    color:rgb(238, 215, 43);
+    margin:1px;
+    font-size: 4vh;
+    display: flex;
+    justify-content: left;
+    
+  }
+
+  h4{
+    color:rgb(43, 92, 238);
+    margin:0px;
+    font-size: 3vh;
+    display: flex;
+    justify-content: left;
+    
+  }
+
+  h5{
+    color:rgb(255, 234, 0);
+    margin:1px;
+    font-size: 3vh;
+    display: flex;
+    justify-content: left;
+  }
+
+  h6{
+    color:rgb(9, 66, 255);
+    margin:1px;
+    font-size: 3vh;
+    display: flex;
+    justify-content: left;
+  }
