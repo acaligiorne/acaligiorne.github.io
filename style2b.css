@@ -22,6 +22,20 @@ body{
     color:rgb(186, 255, 254);
   }
 
+  .band {
+	width: 100vw;
+	opacity: 0;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	z-index: 2;
+	pointer-events: none;
+}
+
+.parent:hover img {
+  opacity: 1;
+}
+
   h2 {
     color: #fcfc2c; 
     margin: 5px;
