@@ -16,6 +16,7 @@ body{
     display: flex;
     justify-content: center;
   }
+  
   h2{
     color:green;
     margin:1px;

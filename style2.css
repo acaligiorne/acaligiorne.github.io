@@ -3,20 +3,25 @@ body{
     margin: 5px;
     font-family: "Bricolage Grotesque", sans-serif;
     font-optical-sizing: auto;
-    font-weight: <normal>;
+    font-weight: normal;
     font-style: normal;
     height:100vh;
     width: 100vw;
     position:relative; 
   }
+
   h1{
     margin:1px;
     color:yellow;
     font-size: 20vh;
-    display: flex;
     justify-content:space-around;
-    text:
+    text-align: center;
   }
+
+  h1:hover {
+    color:orange;
+  }
+
   h2{
     color:rgb(255, 0, 0);
     margin:1px;
@@ -28,12 +33,17 @@ body{
     background:linear-gradient(45deg, red, yellow);
     position:relative;
     
-    margin: 10px auto; /* 10px on the top and bottom, "auto" to center it on either side */
+    margin: 10px auto; 
     padding:10px;
     
     height:100vh;
     width: 100vw;
     z-index: -10;
+  }
+
+  .container:hover{
+    background:linear-gradient(45deg, yellow, red);
+
   }
   
   .circle{
@@ -45,6 +55,10 @@ body{
     right: calc(20vh - 150px);
     position: absolute;
     z-index: -1;
+  }
+
+  .circle:hover {
+    background:linear-gradient(45deg, red, yellow);
   }
 
   .circle2{
@@ -79,6 +93,17 @@ body{
     );
   }
 
+  .horizontal-stripes:hover {
+    background: repeating-linear-gradient(
+        90deg,
+        rgb(0, 0, 0),
+        white 2px,
+        black 20px,
+        black 20px
+      );
+  }
+
+  
   .blue-background {
     background:linear-gradient(45deg, yellow, red);
     color: white;
