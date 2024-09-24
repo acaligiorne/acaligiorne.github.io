@@ -37,7 +37,7 @@ body{
 }
 
   h2 {
-    color: #fcfc2c; 
+    color: #fddf18; 
     margin: 5px;
     font-size: 6vh;
     text-align: center;
@@ -159,7 +159,7 @@ h3, h4, h5, h6 {
 
   
   .blue-background {
-    background:linear-gradient(45deg, rgb(224, 228, 255), #0228ff);
+    background:linear-gradient(45deg, #020fff, #02a2ff);
     color: white;
     border-radius: 100%;
     padding: 10px;
@@ -172,7 +172,7 @@ h3, h4, h5, h6 {
   }
 
   .blue-background:hover {
-    background: linear-gradient(45deg, #0239ff, #dcdeff);
+    background: linear-gradient(45deg, #02a2ff, #020fff);
 }
 
   p{
@@ -186,7 +186,7 @@ h3, h4, h5, h6 {
     align-items: center;
 }
 h3{
-    color:rgb(238, 215, 43);
+    color:#fddf18;
     margin:1px;
     font-size: 4vh;
     display: flex;
@@ -195,7 +195,7 @@ h3{
   }
 
   h4{
-    color:rgb(43, 92, 238);
+    color:rgb(72, 117, 252);
     margin:0px;
     font-size: 3vh;
     display: flex;
@@ -204,7 +204,7 @@ h3{
   }
 
   h5{
-    color:rgb(255, 234, 0);
+    color:rgb(0, 64, 255);
     margin:1px;
     font-size: 3vh;
     display: flex;
@@ -212,7 +212,7 @@ h3{
   }
 
   h6{
-    color:rgb(9, 66, 255);
+    color:rgb(197, 210, 251);
     margin:1px;
     font-size: 3vh;
     display: flex;
