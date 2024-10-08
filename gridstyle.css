@@ -1,0 +1,106 @@
+body {
+    background-color: cornsilk;
+    display: block;
+    margin: 8px;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: "Bricolage Grotesque", sans-serif;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  height: 100vh;
+  gap: 0.5em;
+}
+
+.container div {
+    background-color: #ffffff;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.letter {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  height: 100vh;
+  gap: 0.5em;
+}
+
+/* Letter A */
+#a {
+    display: grid;
+    grid-template-areas: 
+        "top top"
+        "left right";
+    position: relative;
+}
+
+#a .top {
+    grid-area: top;
+    width: 60px;
+    height: 10px;
+    background-color: black;
+    border-radius: 5px;
+}
+
+#a .left-bar, #a .right-bar {
+    width: 10px;
+    height: 80px;
+    background-color: black;
+    border-radius: 5px;
+}
+
+#a .left-bar {
+    grid-area: left;
+}
+
+#a .right-bar {
+    grid-area: right;
+}
+
+/* Letter L */
+#l .vertical-bar {
+    width: 10px;
+    height: 100px;
+    background-color: black;
+    border-radius: 5px;
+}
+
+#l .horizontal-bar {
+    width: 50px;
+    height: 10px;
+    background-color: black;
+    margin-top: 90px;
+    position: absolute;
+}
+
+/* Letter O */
+#o .circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: black;
+}
+
+/* Accent for Ô */
+.accent {
+    font-size: 2rem;
+    position: absolute;
+    top: 0;
+    right: 30px;
+    color: black;
+    transform: translate(0, -50px);
+}
+
+/* Hover effects */
+.letter:hover {
+    transform: scale(1.2);
+    transition: transform 0.3s ease;
+}
