@@ -23,15 +23,49 @@
             text-align: center;
         }
         .image-box img, .logo-box img {
-            max-width: 300px;
-            margin: 2px;
+            max-width: 400px;
+            min-width: 10px;
+            margin: 0px;
         }
 
         #logo {
             position: relative; 
             left: 5px;
-            margin-top: 5px;
+            margin-top: 0px;
         }
+
+
+        #sliderId {
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            -webkit-appearance: none;
+            appearance: none;
+            height: 5px;
+            background: #ddd;
+            outline: none;
+        }
+
+        #sliderId::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            background: black;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        #sliderId::-moz-range-thumb {
+            width: 15px;
+            height: 15px;
+            background: black;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+
     </style>
 </head>
 
@@ -42,11 +76,43 @@
         <div class="logo-box" id="logo2"></div>
     </div>
 
+    <input type="range" id="sliderId" min="1" max="300" value="150">
+
+
+
     <script type="text/javascript">
         // Arrays holding image sources
-        let images = ["masp1.png", "masp2.png", "masp3.png", "masp4.png", "masp5.png", "masp6.png", "masp7.png", "masp8.png"];
-        let logos = ["logo.png", "logo2.png"];
+        let images = ["masp1.png", "masp2.png", "masp3.png", "masp4.png", "masp5.png", "masp6.png", "masp7.png", "masp8.png", "masp9.png", "masp10.png"];
+        let logos = ["logo.png", "logo2.png", "logoa.png", "logob.png"];
         let logos2 = ["logo3.png", "logo4.png"];
+
+
+        function loadImages() {
+            imgDiv.innerHTML = '';
+            images.forEach(src => {
+                const img = document.createElement('img');
+                img.src = src;
+                img.alt = "Resizable Image";
+                img.style.width = "150px";
+                img.style.height = "auto";
+                imgBox.appendChild(img);
+            });
+            logoDiv.innerHTML = `<img src="${logos[Math.floor(Math.random() * logos.length)]}" alt="Random Logo">`;
+            logoDiv2.innerHTML = `<img src="${logos2[Math.floor(Math.random() * logos2.length)]}" alt="Random Logo 2">`;
+        }
+
+        window.addEventListener("load", loadImages);
+
+        const slider = document.getElementById('sliderId');
+        slider.addEventListener('input', () => {
+            const sliderValue = slider.value;
+            document.querySelectorAll('#image img').forEach(img => {
+                img.style.width = `${sliderValue}px`;
+
+            });
+
+        });
+
 
         // Function to generate random index for an array
         function getRandomImage(arr) {
@@ -64,6 +130,10 @@
             logoDiv.innerHTML = `<img src="${getRandomImage(logos)}" alt="Random Logo">`;
             logoDiv2.innerHTML = `<img src="${getRandomImage(logos2)}" alt="Random Logo 2">`;
         });
+
+        
+  
+        
     </script>
 </body>
 
