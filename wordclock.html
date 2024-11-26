@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word Clock</title>
+  <style>
+    body {
+      font-family: Ivy Presto, serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: background 1s;
+    }
+    .highlight {
+      color: red;
+      font-weight: bold;
+    }
+    .word-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .word-grid span {
+      margin: 5px;
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="word-grid">
+    <!-- Greetings -->
+    <span id="morning">good morning</span>
+    <span id="afternoon">good afternoon</span>
+    <span id="evening">good evening</span>
+    <span id="night">good night</span>
+    <span id="its">it’s</span>
+
+    <!-- Hours -->
+    <span id="hour-1">one</span>
+    <span id="hour-2">two</span>
+    <span id="hour-3">three</span>
+    <span id="hour-4">four</span>
+    <span id="hour-5">five</span>
+    <span id="hour-6">six</span>
+    <span id="hour-7">seven</span>
+    <span id="hour-8">eight</span>
+    <span id="hour-9">nine</span>
+    <span id="hour-10">ten</span>
+    <span id="hour-11">eleven</span>
+    <span id="hour-12">twelve</span>
+
+    <!-- Minutes -->
+    <span id="minute-1">one</span>
+    <span id="minute-2">two</span>
+    <span id="minute-3">three</span>
+    <span id="minute-4">four</span>
+    <span id="minute-5">five</span>
+    <span id="minute-6">six</span>
+    <span id="minute-7">seven</span>
+    <span id="minute-8">eight</span>
+    <span id="minute-9">nine</span>
+    <span id="minute-10">ten</span>
+    <span id="minute-11">eleven</span>
+    <span id="minute-12">twelve</span>
+    <span id="minute-13">thirteen</span>
+    <span id="minute-14">fourteen</span>
+    <span id="minute-15">fifteen</span>
+    <span id="minute-16">sixteen</span>
+    <span id="minute-17">seventeen</span>
+    <span id="minute-18">eighteen</span>
+    <span id="minute-19">nineteen</span>
+    <span id="minute-20">twenty</span>
+    <span id="minute-21">twenty-one</span>
+    <span id="minute-22">twenty-two</span>
+    <span id="minute-23">twenty-three</span>
+    <span id="minute-24">twenty-four</span>
+    <span id="minute-25">twenty-five</span>
+    <span id="minute-26">twenty-six</span>
+    <span id="minute-27">twenty-seven</span>
+    <span id="minute-28">twenty-eight</span>
+    <span id="minute-29">twenty-nine</span>
+    <span id="minute-30">thirty</span>
+    <span id="minute-31">thirty-one</span>
+    <span id="minute-32">thirty-two</span>
+    <span id="minute-33">thirty-three</span>
+    <span id="minute-34">thirty-four</span>
+    <span id="minute-35">thirty-five</span>
+    <span id="minute-36">thirty-six</span>
+    <span id="minute-37">thirty-seven</span>
+    <span id="minute-38">thirty-eight</span>
+    <span id="minute-39">thirty-nine</span>
+    <span id="minute-40">forty</span>
+    <span id="minute-41">forty-one</span>
+    <span id="minute-42">forty-two</span>
+    <span id="minute-43">forty-three</span>
+    <span id="minute-44">forty-four</span>
+    <span id="minute-45">forty-five</span>
+    <span id="minute-46">forty-six</span>
+    <span id="minute-47">forty-seven</span>
+    <span id="minute-48">forty-eight</span>
+    <span id="minute-49">forty-nine</span>
+    <span id="minute-50">fifty</span>
+    <span id="minute-51">fifty-one</span>
+    <span id="minute-52">fifty-two</span>
+    <span id="minute-53">fifty-three</span>
+    <span id="minute-54">fifty-four</span>
+    <span id="minute-55">fifty-five</span>
+    <span id="minute-56">fifty-six</span>
+    <span id="minute-57">fifty-seven</span>
+    <span id="minute-58">fifty-eight</span>
+    <span id="minute-59">fifty-nine</span>
+
+    <!-- O’clock -->
+    <span id="oclock">o’clock</span>
+
+    <!-- AM/PM -->
+    <span id="am">am</span>
+    <span id="pm">pm</span>
+  </div>
+
+  <script>
+    function updateClock() {
+      // Clear all highlights
+      document.querySelectorAll('.highlight').forEach(el => el.classList.remove('highlight'));
+
+      const now = new Date();
+      const hours = now.getHours();
+      const minutes = now.getMinutes();
+      const isAM = hours < 12;
+
+      // Determine greeting
+      if (hours >= 5 && hours < 12) document.getElementById('morning').classList.add('highlight');
+      else if (hours >= 12 && hours < 18) document.getElementById('afternoon').classList.add('highlight');
+      else if (hours >= 18 && hours < 22) document.getElementById('evening').classList.add('highlight');
+      else document.getElementById('night').classList.add('highlight');
+
+      // Highlight hours
+      const hourToHighlight = hours % 12 || 12;
+      document.getElementById(`hour-${hourToHighlight}`).classList.add('highlight');
+
+      // Highlight minutes
+      if (minutes > 0) document.getElementById(`minute-${minutes}`).classList.add('highlight');
+
+      // Highlight "o'clock"
+      if (minutes === 0) document.getElementById('oclock').classList.add('highlight');
+
+      // Highlight AM/PM
+      document.getElementById(isAM ? 'am' : 'pm').classList.add('highlight');
+
+      let gradient;
+      if (hours >= 5 && hours < 12) {
+        gradient = "linear-gradient(to bottom, #FFDD00, #FF6600)"; // Morning (yellow to orange)
+      } else if (hours >= 12 && hours < 18) {
+        gradient = "linear-gradient(to bottom, #87CEEB, #4682B4)"; // Afternoon (light blue to deep blue)
+      } else if (hours >= 18 && hours < 22) {
+        gradient = "linear-gradient(to bottom, #FF4500, #2F4F4F)"; // Evening (orange to dark gray)
+      } else {
+        gradient = "linear-gradient(to bottom, #000033, #000000)"; // Night (dark blue to black)
+      }
+
+      document.body.style.background = gradient;
+    
+    }
+
+    
+
+    // Update the clock initially and every minute
+    updateClock();
+    setInterval(updateClock, 60000);
+  </script>
+</body>
+</html>
