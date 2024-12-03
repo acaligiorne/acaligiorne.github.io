@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="stylesheet" href="https://use.typekit.net/dyw1iey.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Word Clock</title>
   <style>
     body {
-      font-family: Ivy Presto, serif;
+      font-family: "ivypresto-text", serif;
+      font-weight: 100;
+      font-style: normal;
       text-align: center;
       margin: 0;
       padding: 0;
@@ -18,7 +21,7 @@
       transition: background 1s;
     }
     .highlight {
-      color: red;
+      color: rgb(255, 0, 0);
       font-weight: bold;
     }
     .word-grid {
@@ -32,16 +35,42 @@
       margin: 5px;
       padding: 5px;
     }
+
+    #its {
+      color: red;
+      font-weight: bold;
+    }
+
+    
+    
+
   </style>
 </head>
 <body>
   <div class="word-grid">
     <!-- Greetings -->
-    <span id="morning">good morning</span>
-    <span id="afternoon">good afternoon</span>
-    <span id="evening">good evening</span>
-    <span id="night">good night</span>
+    <span id="morning">good morning,</span>
+    <span id="afternoon">good afternoon,</span>
+    <span id="evening">good evening,</span>
+    <span id="night">good night,</span>
     <span id="its">it’s</span>
+
+    <audio id="morning-sound" loop>
+      <source src="morning.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="afternoon-sound" loop>
+      <source src="afternoon.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="evening-sound" loop>
+      <source src="evening.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="night-sound" loop>
+      <source src="night.mp3" type="audio/mpeg">
+    </audio>
+
+
+
+    
 
     <!-- Hours -->
     <span id="hour-1">one</span>
@@ -58,15 +87,15 @@
     <span id="hour-12">twelve</span>
 
     <!-- Minutes -->
-    <span id="minute-1">one</span>
-    <span id="minute-2">two</span>
-    <span id="minute-3">three</span>
-    <span id="minute-4">four</span>
-    <span id="minute-5">five</span>
-    <span id="minute-6">six</span>
-    <span id="minute-7">seven</span>
-    <span id="minute-8">eight</span>
-    <span id="minute-9">nine</span>
+    <span id="minute-1">o-one</span>
+    <span id="minute-2">o-two</span>
+    <span id="minute-3">o-three</span>
+    <span id="minute-4">o-four</span>
+    <span id="minute-5">o-five</span>
+    <span id="minute-6">o-six</span>
+    <span id="minute-7">o-seven</span>
+    <span id="minute-8">o-eight</span>
+    <span id="minute-9">o-nine</span>
     <span id="minute-10">ten</span>
     <span id="minute-11">eleven</span>
     <span id="minute-12">twelve</span>
@@ -124,9 +153,15 @@
     <!-- AM/PM -->
     <span id="am">am</span>
     <span id="pm">pm</span>
+
+    
   </div>
 
   <script>
+
+document.body.addEventListener('click', playSound);
+  document.body.addEventListener('dblclick', stopSound);
+    
     function updateClock() {
       // Clear all highlights
       document.querySelectorAll('.highlight').forEach(el => el.classList.remove('highlight'));
@@ -157,24 +192,65 @@
 
       let gradient;
       if (hours >= 5 && hours < 12) {
-        gradient = "linear-gradient(to bottom, #FFDD00, #FF6600)"; // Morning (yellow to orange)
+        gradient = "linear-gradient(to bottom, #fef390, #ff6a00)"; // Morning (yellow to orange)
       } else if (hours >= 12 && hours < 18) {
-        gradient = "linear-gradient(to bottom, #87CEEB, #4682B4)"; // Afternoon (light blue to deep blue)
+        gradient = "linear-gradient(to bottom, #fad274, #90effe)"; 
       } else if (hours >= 18 && hours < 22) {
-        gradient = "linear-gradient(to bottom, #FF4500, #2F4F4F)"; // Evening (orange to dark gray)
+        gradient = "linear-gradient(to bottom, #90effe, #012157)";
       } else {
-        gradient = "linear-gradient(to bottom, #000033, #000000)"; // Night (dark blue to black)
+        gradient = "linear-gradient(to bottom, #012157, #000309)";
       }
 
       document.body.style.background = gradient;
     
     }
+    let currentSound = null;
 
+  // Function to play sound based on the time of day
+  function playSound() {
+    const now = new Date();
+    const hours = now.getHours();
+    let soundToPlay = null;
+
+    if (hours >= 5 && hours < 12) {
+      soundToPlay = document.getElementById('morning-sound');
+    } else if (hours >= 12 && hours < 18) {
+      soundToPlay = document.getElementById('afternoon-sound');
+    } else if (hours >= 18 && hours < 22) {
+      soundToPlay = document.getElementById('evening-sound');
+    } else {
+      soundToPlay = document.getElementById('night-sound');
+    }
+
+    // Stop current sound if it's different from the new one
+    if (currentSound && currentSound !== soundToPlay) {
+      currentSound.pause();
+      currentSound.currentTime = 0;
+    }
+
+    // Play the new sound
+    if (soundToPlay && currentSound !== soundToPlay) {
+      soundToPlay.play();
+      currentSound = soundToPlay;
+    }
+  }
+
+  // Function to stop all sounds
+  function stopSound() {
+    if (currentSound) {
+      currentSound.pause();
+      currentSound.currentTime = 0;
+      currentSound = null;
+    }
+  }
     
 
     // Update the clock initially and every minute
     updateClock();
-    setInterval(updateClock, 60000);
+    updateSound();
+    setInterval(updateClockAndSound, 60000);
+
+
   </script>
 </body>
 </html>
